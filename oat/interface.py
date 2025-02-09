@@ -33,20 +33,20 @@ def get_program(
 ):
     """Define the default distributed program topology with configs."""
     program = lp.Program("online_dap")
-
+    gpus_list = args.gpus_list.split(',')
     # Resource.
     if args.collocate:
-        actor_gpus = learner_gpus = list(range(args.gpus))
+        actor_gpus = learner_gpus = gpus_list[: args.gpus]
     else:
         if args.gpus % 2 == 0:
-            actor_gpus = list(range(args.gpus // 2))
-            learner_gpus = list(range(args.gpus // 2, args.gpus))
+            actor_gpus = gpus_list[: args.gpus // 2]
+            learner_gpus = gpus_list[args.gpus // 2 : args.gpus]
         else:
             logging.warn(
                 "Number of GPUs not divisible by 2, one GPU will be forced to collocate learner and actor."
             )
-            actor_gpus = list(range(args.gpus // 2 + 1))
-            learner_gpus = list(range(args.gpus // 2, args.gpus))
+            actor_gpus = gpus_list[: args.gpus // 2 + 1]
+            learner_gpus = gpus_list[args.gpus // 2 : args.gpus]
 
     logging.warn(
         f"=== GPU allocations ===\nActor: {actor_gpus}, Learner: {learner_gpus}"

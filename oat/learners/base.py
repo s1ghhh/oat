@@ -109,6 +109,14 @@ class LearnerBase(abc.ABC, DistributedLauncher):
         )
         strategy.print("chat template:", self.tokenizer.chat_template)
 
+        # import debugpy
+        # try:
+        #     debugpy.listen(8201)
+        #     print("Waiting for debugger attach")
+        #     debugpy.wait_for_client()
+        # except Exception as e:
+        #     print(e)
+
         # ---------- Data related ----------
         # prepare buffer
         self.pi_buffer = deque(maxlen=args.pi_buffer_maxlen_per_device)

@@ -64,6 +64,10 @@ class ActorBase(abc.ABC):
 
         vllm.worker.worker.Worker = WorkerWrap
         vllm_args.update({"seed": time.time_ns() % 2**32})
+
+        print(vllm_args)
+        # vllm_args["max_model_len"] = 4096
+        
         self.llm = vllm.LLM(**vllm_args)
         self.tokenizer = self.llm.get_tokenizer()
         self.model = self.llm.llm_engine.model_executor.driver_worker.model_runner.model

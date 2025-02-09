@@ -31,6 +31,7 @@ class OATArgs:
     launch_type: str = "local_mp"
     # Number of GPUs to run the experiment.
     gpus: int = 8
+    gpus_list: str = "0,1,2,3,4,5,6,7"
     # Ratio of pre-allocated GPU memory for vLLM.
     vllm_gpu_ratio: float = 0.25
     # Actor-learner collocation.

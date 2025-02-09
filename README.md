@@ -11,6 +11,17 @@
 
 ---
 
+## Quick Start
+* For environment
+```shell
+bash ./scripts/install.sh
+```
+
+* For oat-zero
+```shell
+bash ./scripts/run_grpo.sh
+```
+
 ## Updates
 * 26/01/2025: We support reinforcement learning with verifiable rewards (RLVR) for math reasoning.
   * A quick [example](https://github.com/sail-sg/oat/blob/main/docs/reasoning_examples.md#deepseek-r1-zero-like-training) of R1-Zero-like training with GRPO.
