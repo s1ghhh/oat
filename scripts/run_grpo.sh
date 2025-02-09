@@ -54,7 +54,7 @@ export LD_LIBRARY_PATH=$CONDA_PREFIX/lib:$LD_LIBRARY_PATH
 
 python examples/r1_zero_math.py \
     --critic_type grpo \
-    --gpus 6 \
+    --gpus 4 \
     --gpus_list 1,3,4,5 \
     --vllm_gpu_ratio 0.7 \
     --gradient-checkpointing \
